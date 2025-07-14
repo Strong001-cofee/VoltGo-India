@@ -6,469 +6,536 @@
     <title>VoltGo India - Your Trusted EV Pre-Booking App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
-      .orbitron {
-        font-family: "Orbitron", monospace;
+      .inter {
+        font-family: "Inter", sans-serif;
       }
-      .exo {
-        font-family: "Exo 2", sans-serif;
+      .mono {
+        font-family: "JetBrains Mono", monospace;
       }
 
-      .animated-bg {
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .hero-gradient {
         background: linear-gradient(
-          -45deg,
-          #0a0a0a,
-          #1a1a2e,
-          #16213e,
-          #0f3460,
-          #1e3a8a
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #0f172a 100%
         );
-        background-size: 400% 400%;
-        animation: gradientShift 20s ease infinite;
       }
 
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      .electric-pulse {
-        animation: electricPulse 2s ease-in-out infinite;
-      }
-
-      @keyframes electricPulse {
-        0%,
-        100% {
-          box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-        }
-        50% {
-          box-shadow: 0 0 40px rgba(34, 197, 94, 0.6),
-            0 0 60px rgba(34, 197, 94, 0.4);
-        }
-      }
-
-      .glow-effect {
-        box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
-        transition: all 0.4s ease;
-      }
-
-      .glow-effect:hover {
-        box-shadow: 0 0 50px rgba(34, 197, 94, 0.7),
-          0 0 80px rgba(34, 197, 94, 0.3);
-        transform: translateY(-3px) scale(1.02);
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .glass-card {
-        backdrop-filter: blur(15px);
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        transition: all 0.4s ease;
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
       }
 
       .glass-card:hover {
-        background: rgba(255, 255, 255, 0.12);
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          #3b82f6 0%,
+          #2563eb 100%
+        ); /* Changed from green */
+        box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.3); /* Changed from green */
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.4); /* Changed from green */
+      }
+
+      .btn-secondary {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.4);
+      }
+
+      .text-gradient {
+        background: linear-gradient(
+          135deg,
+          #3b82f6,
+          #8b5cf6,
+          #a855f7
+        ); /* Changed from green */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .animate-pulse-slow {
+        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      .section-padding {
+        padding: 6rem 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
       }
 
       .fade-in {
-        animation: fadeIn 1s ease-out;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeIn 0.8s ease-out forwards;
       }
 
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
 
-      .slide-in-left {
-        animation: slideInLeft 0.8s ease-out;
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
       }
 
-      @keyframes slideInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .slide-in-right {
-        animation: slideInRight 0.8s ease-out;
-      }
-
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .floating-blob {
-        position: absolute;
-        border-radius: 50%;
+      .hero-image {
         background: linear-gradient(
-          45deg,
-          rgba(34, 197, 94, 0.1),
-          rgba(59, 130, 246, 0.1)
+          135deg,
+          rgba(59, 130, 246, 0.1) 0%,
+          /* Changed from green transparent */ rgba(168, 85, 247, 0.1) 100%
+            /* Changed from blue transparent */
         );
-        animation: float 8s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-30px) rotate(180deg);
-        }
-      }
-
-      .text-gradient {
-        background: linear-gradient(135deg, #22c55e, #3b82f6, #8b5cf6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        background-size: 200% 200%;
-        animation: gradientMove 3s ease infinite;
-      }
-
-      @keyframes gradientMove {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        transition: all 0.4s ease;
-        position: relative;
+        border-radius: 2rem;
         overflow: hidden;
-      }
-
-      .btn-primary::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        transition: left 0.6s;
-      }
-
-      .btn-primary:hover::before {
-        left: 100%;
-      }
-
-      .btn-primary:hover {
-        background: linear-gradient(135deg, #16a34a, #15803d);
-        transform: translateY(-3px) scale(1.05);
-      }
-
-      .btn-secondary {
-        background: linear-gradient(135deg, #f59e0b, #d97706);
-        transition: all 0.4s ease;
-      }
-
-      .btn-secondary:hover {
-        background: linear-gradient(135deg, #d97706, #b45309);
-        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       }
 
       .feature-icon {
-        font-size: 3rem;
-        filter: drop-shadow(0 0 15px rgba(34, 197, 94, 0.6));
+        width: 5rem; /* Increased size */
+        height: 5rem; /* Increased size */
+        background: linear-gradient(
+          135deg,
+          #3b82f6 0%,
+          #a855f7 100%
+        ); /* Changed from green */
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem; /* Increased font size for icon */
         transition: all 0.3s ease;
       }
 
       .feature-icon:hover {
-        transform: scale(1.2) rotate(5deg);
-        filter: drop-shadow(0 0 25px rgba(34, 197, 94, 0.8));
+        transform: scale(1.1) rotate(5deg);
       }
 
-      .charging-animation {
-        animation: chargingPulse 2s ease-in-out infinite;
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
       }
 
-      @keyframes chargingPulse {
-        0%,
-        100% {
-          opacity: 0.6;
-        }
-        50% {
-          opacity: 1;
-        }
+      .stat-card {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .location-ping {
-        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #3b82f6; /* Changed from green */
+        margin-bottom: 0.5rem;
       }
 
-      @keyframes ping {
-        75%,
-        100% {
-          transform: scale(2);
-          opacity: 0;
-        }
-      }
-
-      .cyber-border {
+      .mockup-container {
         position: relative;
-        border: 2px solid transparent;
-        background: linear-gradient(45deg, #22c55e, #3b82f6) border-box;
-        mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-        mask-composite: subtract;
+        display: inline-block;
       }
 
-      .mockup-shadow {
-        filter: drop-shadow(0 25px 50px rgba(34, 197, 94, 0.3));
-      }
-
-      .stats-counter {
-        font-family: "Orbitron", monospace;
-        font-weight: 700;
-        color: #22c55e;
-        text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
-      }
-
-      .neon-text {
-        color: #22c55e;
-        text-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 15px #22c55e;
-      }
-
-      .circuit-bg {
-        background-image: radial-gradient(
-            circle at 20% 80%,
-            rgba(34, 197, 94, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(59, 130, 246, 0.1) 0%,
-            transparent 50%
-          );
+      .mockup-glow {
+        position: absolute;
+        inset: -2rem;
+        background: linear-gradient(
+          135deg,
+          #3b82f6,
+          #8b5cf6
+        ); /* Changed from green */
+        border-radius: 3rem;
+        filter: blur(2rem);
+        opacity: 0.3;
+        z-index: -1;
       }
     </style>
   </head>
-  <body class="bg-gray-900 text-white overflow-x-hidden exo">
-    <!-- Animated Background -->
-    <div class="fixed inset-0 animated-bg -z-10"></div>
-
-    <!-- Floating Blobs -->
-    <div class="floating-blob w-72 h-72 top-20 -left-36 opacity-20"></div>
-    <div
-      class="floating-blob w-56 h-56 top-96 -right-28 opacity-15"
-      style="animation-delay: -3s"
-    ></div>
-    <div
-      class="floating-blob w-96 h-96 bottom-20 left-1/2 opacity-10"
-      style="animation-delay: -6s"
-    ></div>
-
-    <!-- Header/Hero Section -->
-    <header
-      class="relative min-h-screen flex items-center justify-center px-4 py-16"
-    >
-      <div
-        class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-      >
-        <!-- Left Content -->
-        <div class="text-center lg:text-left fade-in">
-          <h1
-            class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-gradient orbitron"
-          >
-            VOLTGO INDIA
-          </h1>
-          <p class="text-xl md:text-2xl mb-4 text-gray-300 font-medium">
-            Your Trusted EV Pre-Booking App
-          </p>
-          <p
-            class="text-lg md:text-xl mb-8 text-gray-400 max-w-2xl mx-auto lg:mx-0"
-          >
-            Pre-book your electric vehicle with confidence, find charging
-            stations instantly, and manage your EV journey seamlessly
-          </p>
-
-          <!-- Key Stats -->
-          <div class="grid grid-cols-3 gap-4 mb-12">
-            <div class="text-center">
-              <div class="stats-counter text-2xl md:text-3xl">500+</div>
-              <div class="text-sm text-gray-400">Charging Stations</div>
-            </div>
-            <div class="text-center">
-              <div class="stats-counter text-2xl md:text-3xl">50K+</div>
-              <div class="text-sm text-gray-400">Happy Users</div>
-            </div>
-            <div class="text-center">
-              <div class="stats-counter text-2xl md:text-3xl">99.9%</div>
-              <div class="text-sm text-gray-400">Uptime</div>
-            </div>
-          </div>
-
-          <!-- Download Buttons -->
-          <div
-            class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
-          >
-            <a
-              href="voltgo-latest.apk"
-              download
-              class="btn-primary px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 glow-effect electric-pulse"
-            >
-              <span class="text-2xl">⚡</span>
-              Download Now (Recommended)
-            </a>
-            <a
-              href="voltgo-beta.apk"
-              download
-              class="btn-secondary px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3"
-            >
-              <span class="text-2xl">🔧</span>
-              Beta Version
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Content - Phone Mockup -->
-        <div class="flex justify-center lg:justify-end slide-in-right">
-          <div class="relative">
+  <body class="bg-slate-900 text-white inter">
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+      <div class="container">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-4">
             <div
-              class="w-64 h-128 bg-gradient-to-b from-gray-800 to-gray-900 rounded-3xl p-2 mockup-shadow"
+              class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center"
             >
-              <div class="w-full h-full bg-black rounded-2xl p-4 flex flex-col">
-                <div class="flex items-center justify-center mb-6">
-                  <div
-                    class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-2xl">⚡</span>
-                  </div>
-                </div>
-                <div class="text-center mb-6">
-                  <h3 class="text-green-400 font-bold text-lg orbitron">
-                    VoltGo
-                  </h3>
-                  <p class="text-gray-400 text-sm">
-                    Finding nearby stations...
-                  </p>
-                </div>
-                <div class="space-y-3 flex-1">
-                  <div class="bg-gray-800 rounded-lg p-3">
-                    <div class="flex items-center gap-2 mb-2">
-                      <div
-                        class="w-3 h-3 bg-green-400 rounded-full location-ping"
-                      ></div>
-                      <span class="text-green-400 text-sm"
-                        >Shell Charging Hub</span
-                      >
-                    </div>
-                    <p class="text-xs text-gray-400">2.3 km away • Available</p>
-                  </div>
-                  <div class="bg-gray-800 rounded-lg p-3">
-                    <div class="flex items-center gap-2 mb-2">
-                      <div
-                        class="w-3 h-3 bg-yellow-400 rounded-full charging-animation"
-                      ></div>
-                      <span class="text-yellow-400 text-sm"
-                        >Tata Power Station</span
-                      >
-                    </div>
-                    <p class="text-xs text-gray-400">
-                      4.1 km away • 2 slots busy
-                    </p>
-                  </div>
-                  <div class="bg-gray-800 rounded-lg p-3">
-                    <div class="flex items-center gap-2 mb-2">
-                      <div
-                        class="w-3 h-3 bg-green-400 rounded-full location-ping"
-                      ></div>
-                      <span class="text-green-400 text-sm">Ather Grid</span>
-                    </div>
-                    <p class="text-xs text-gray-400">
-                      5.7 km away • Fast charging
-                    </p>
-                  </div>
-                </div>
+              <span class="text-xl font-bold"
+                ><img src="C:\all\VoltGo Inida\logo.png" alt=""
+              /></span>
+            </div>
+            <span class="text-xl font-bold mono">VoltGo</span>
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#features"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Features</a
+            >
+            <a
+              href="#how-it-works"
+              class="text-gray-300 hover:text-white transition-colors"
+              >How It Works</a
+            >
+            <a
+              href="#support"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Support</a
+            >
+            <a
+              href="#download"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Download</a
+            >
+          </div>
+          <button class="md:hidden">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-gradient min-h-screen flex items-center pt-16">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 text-gradient mono">
+              VoltGo India
+            </h1>
+            <p class="text-xl md:text-2xl mb-4 text-gray-300 font-medium">
+              Your Trusted EV Pre-Booking App
+            </p>
+            <p class="text-lg mb-8 text-gray-400 max-w-2xl">
+              Pre-book your electric vehicle with confidence, find charging
+              stations instantly, and manage your EV journey seamlessly with
+              India's most advanced EV management platform.
+            </p>
+
+            <div class="stats-grid mb-8">
+              <div class="stat-card fade-in stagger-1">
+                <div class="stat-number mono">500+</div>
+                <div class="text-gray-400">Charging Stations</div>
+              </div>
+              <div class="stat-card fade-in stagger-2">
+                <div class="stat-number mono">50K+</div>
+                <div class="text-gray-400">Happy Users</div>
+              </div>
+              <div class="stat-card fade-in stagger-3">
+                <div class="stat-number mono">99.9%</div>
+                <div class="text-gray-400">Uptime</div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 fade-in stagger-4">
+              <a
+                href="voltgo-latest.apk"
+                download
+                class="btn-primary px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3"
+              >
+                <span class="text-xl">📱</span>
+                Download Now
+              </a>
+              <a
+                href="voltgo-beta.apk"
+                download
+                class="btn-secondary px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3"
+              >
+                <span class="text-xl">🔧</span>
+                Beta Version
+              </a>
+            </div>
+          </div>
+
+          <div class="fade-in stagger-2">
+            <div class="mockup-container">
+              <div class="mockup-glow"></div>
+              <div class="hero-image p-8 animate-float">
+                <img
+                  src="https://cdn.pixabay.com/photo/2022/01/16/23/15/car-6943487_1280.jpg"
+                  alt="Electric Vehicle Charging"
+                  class="w-full h-auto rounded-2xl shadow-2xl"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <!-- How It Works Section -->
-    <section class="py-20 px-4 relative circuit-bg">
-      <div class="max-w-7xl mx-auto">
+    <section id="features" class="section-padding">
+      <div class="container">
         <div class="text-center mb-16 fade-in">
-          <h2
-            class="text-4xl md:text-5xl font-bold mb-6 text-gradient orbitron"
-          >
-            HOW IT WORKS
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient mono">
+            Advanced Features
           </h2>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Experience the future of EV management with our intelligent
-            location-based system
+            Experience the future of EV management with cutting-edge technology
+            and intelligent automation
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-1">
+            <div class="feature-icon">
+              <img
+                src="booking.png"
+                alt="EV Pre-Booking"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">
+              Instant EV Pre-Booking
+            </h3>
+            <p class="text-gray-400">
+              Book your electric vehicle instantly with advanced scheduling and
+              smart recommendations
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-2">
+            <div class="feature-icon">
+              <img
+                src="real-time-monitoring.png"
+                alt="Real-Time Station Mapping"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">
+              Real-Time Station Mapping
+            </h3>
+            <p class="text-gray-400">
+              Interactive map showing all charging stations with live
+              availability and pricing
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-3">
+            <div class="feature-icon">
+              <img
+                src="vehicle.png"
+                alt="Smart Charging Slots"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">
+              Smart Charging Slots
+            </h3>
+            <p class="text-gray-400">
+              Reserve charging slots in advance with time-based booking and
+              notifications
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-1">
+            <div class="feature-icon">
+              <img
+                src="schedule.png"
+                alt="Flexible Scheduling"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">
+              Flexible Scheduling
+            </h3>
+            <p class="text-gray-400">
+              Reschedule or cancel bookings anytime with intelligent rebooking
+              suggestions
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-2">
+            <div class="feature-icon">
+              <img
+                src="secure-payment.png"
+                alt="Secure Payments"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">Secure Payments</h3>
+            <p class="text-gray-400">
+              Military-grade encryption with Razorpay integration for safe
+              transactions
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-3">
+            <div class="feature-icon">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3242/3242257.png"
+                alt="Usage Analytics"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">Usage Analytics</h3>
+            <p class="text-gray-400">
+              Detailed insights into your charging patterns and cost savings
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section-padding bg-slate-800/50">
+      <div class="container">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient mono">
+            How It Works
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Simple, intelligent, and automated - your EV journey made effortless
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <div class="feature-icon mb-6">📍</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Location Access</h3>
+          <div class="text-center fade-in stagger-1">
+            <div class="mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=300&h=200&fit=crop&crop=center"
+                alt="Location Detection"
+                class="w-full h-48 object-cover rounded-xl shadow-lg"
+              />
+            </div>
+            <div
+              class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold"
+            >
+              1
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">Location Access</h3>
             <p class="text-gray-400">
               App automatically detects your current location for personalized
               experience
             </p>
           </div>
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <div class="feature-icon mb-6">🔍</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Find Stations</h3>
+
+          <div class="text-center fade-in stagger-2">
+            <div class="mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop&crop=center"
+                alt="Find Stations"
+                class="w-full h-48 object-cover rounded-xl shadow-lg"
+              />
+            </div>
+            <div
+              class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold"
+            >
+              2
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">Find Stations</h3>
             <p class="text-gray-400">
               Discover nearest charging stations with real-time availability
               status
             </p>
           </div>
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <div class="feature-icon mb-6">📱</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Book Instantly</h3>
+
+          <div class="text-center fade-in stagger-3">
+            <div class="mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center"
+                alt="Book Instantly"
+                class="w-full h-48 object-cover rounded-xl shadow-lg"
+              />
+            </div>
+            <div
+              class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold"
+            >
+              3
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">Book Instantly</h3>
             <p class="text-gray-400">
               Reserve your charging slot or pre-book your EV with one tap
             </p>
           </div>
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <div class="feature-icon mb-6">⚡</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Charge & Go</h3>
+
+          <div class="text-center fade-in stagger-4">
+            <div class="mb-6">
+              <img
+                src="https://media.istockphoto.com/id/1369268936/photo/electric-car-plugged-in-outside-house.jpg?s=1024x1024&w=is&k=20&c=4QIJUcCirXTVkt7neL0GUlPRf6n7tmkGXlr0zVh7bdM="
+                alt="Charge & Go"
+                class="w-full h-48 object-cover rounded-xl shadow-lg"
+              />
+            </div>
+            <div
+              class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold"
+            >
+              4
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-white">Charge & Go</h3>
             <p class="text-gray-400">
               Navigate to your station and enjoy seamless charging experience
             </p>
@@ -477,15 +544,12 @@
       </div>
     </section>
 
-    <!-- App Overview Section -->
-    <section class="py-20 px-4 relative">
-      <div class="max-w-6xl mx-auto">
+    <section class="section-padding">
+      <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="slide-in-left">
-            <h2
-              class="text-4xl md:text-5xl font-bold mb-8 text-gradient orbitron"
-            >
-              SMART EV ECOSYSTEM
+          <div class="fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-gradient mono">
+              Smart EV Ecosystem
             </h2>
             <div class="space-y-6">
               <p class="text-lg text-gray-300 leading-relaxed">
@@ -500,446 +564,176 @@
                 permission and uses GPS to pinpoint your exact coordinates.
                 Based on this data, our sophisticated algorithm calculates
                 distances to nearby charging stations and displays them in order
-                of proximity, complete with availability status, charging
-                speeds, and estimated wait times.
+                of proximity.
               </p>
-              <p class="text-lg text-gray-300 leading-relaxed">
-                Whether you're planning a long journey or need an emergency
-                charge, VoltGo India ensures you're never stranded. Pre-book
-                your EV, reserve charging slots, and manage your entire electric
-                mobility experience from one powerful platform.
-              </p>
-            </div>
-          </div>
-          <div class="slide-in-right">
-            <div class="relative">
               <div
-                class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 blur-3xl"
-              ></div>
-              <div
-                class="relative bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700"
+                class="flex items-center gap-4 p-4 bg-blue-500/10 rounded-xl border border-blue-500/20"
               >
-                <div class="space-y-4">
-                  <div class="flex items-center gap-4">
-                    <div
-                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center"
-                    >
-                      <span class="text-white font-bold">📍</span>
-                    </div>
-                    <div>
-                      <h4 class="font-semibold text-green-400">
-                        Location Detected
-                      </h4>
-                      <p class="text-sm text-gray-400">Bangalore, Karnataka</p>
-                    </div>
-                  </div>
-                  <div class="h-px bg-gray-700"></div>
-                  <div class="space-y-3">
-                    <div class="flex justify-between items-center">
-                      <span class="text-sm text-gray-300">Nearby Stations</span>
-                      <span class="text-sm text-green-400">12 found</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                      <span class="text-sm text-gray-300">Available Slots</span>
-                      <span class="text-sm text-green-400">8 free</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                      <span class="text-sm text-gray-300">Avg. Distance</span>
-                      <span class="text-sm text-blue-400">3.2 km</span>
-                    </div>
-                  </div>
+                <div
+                  class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center"
+                >
+                  <span class="text-xl">✓</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-blue-400">
+                    Location-Based Intelligence
+                  </h4>
+                  <p class="text-sm text-gray-400">
+                    GPS accuracy within 3 meters with real-time updates
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- App Features Section -->
-    <section class="py-20 px-4 relative">
-      <div class="max-w-7xl mx-auto fade-in">
-        <div class="text-center mb-16">
-          <h2
-            class="text-4xl md:text-5xl font-bold mb-6 text-gradient orbitron"
-          >
-            ADVANCED FEATURES
-          </h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Cutting-edge technology meets user-friendly design for the ultimate
-            EV experience
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">🚗</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">
-              Instant EV Pre-Booking
-            </h3>
-            <p class="text-gray-400">
-              Book your electric vehicle instantly with advanced scheduling and
-              smart recommendations
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">🗺️</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">
-              Real-Time Station Mapping
-            </h3>
-            <p class="text-gray-400">
-              Interactive map showing all charging stations with live
-              availability and pricing
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">⚡</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">
-              Smart Charging Slots
-            </h3>
-            <p class="text-gray-400">
-              Reserve charging slots in advance with time-based booking and
-              notifications
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">📅</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">
-              Flexible Scheduling
-            </h3>
-            <p class="text-gray-400">
-              Reschedule or cancel bookings anytime with intelligent rebooking
-              suggestions
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">🔒</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Secure Payments</h3>
-            <p class="text-gray-400">
-              Military-grade encryption with Razorpay integration for safe
-              transactions
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">🔄</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Instant Refunds</h3>
-            <p class="text-gray-400">
-              Automated refund system with 24/7 processing and transparent
-              tracking
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">📲</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Direct APK Access</h3>
-            <p class="text-gray-400">
-              Get the latest version directly without store limitations or
-              delays
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">🎯</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Route Optimization</h3>
-            <p class="text-gray-400">
-              AI-powered route planning with charging stops and traffic
-              optimization
-            </p>
-          </div>
-          <div class="glass-card p-8 rounded-2xl text-center cyber-border">
-            <div class="feature-icon mb-6">📊</div>
-            <h3 class="text-xl font-bold mb-4 neon-text">Usage Analytics</h3>
-            <p class="text-gray-400">
-              Detailed insights into your charging patterns and cost savings
-            </p>
+          <div class="fade-in">
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-500/20 blur-3xl"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center"
+                alt="EV Charging Network"
+                class="relative w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Location Features Section -->
-    <section class="py-20 px-4 relative">
-      <div class="max-w-7xl mx-auto">
+    <section id="support" class="section-padding bg-slate-800/50">
+      <div class="container">
         <div class="text-center mb-16 fade-in">
-          <h2
-            class="text-4xl md:text-5xl font-bold mb-6 text-gradient orbitron"
-          >
-            LOCATION-BASED INTELLIGENCE
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient mono">
+            24/7 Support Center
           </h2>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Our advanced GPS technology transforms your smartphone into a
-            powerful EV command center
+            Our dedicated support team is always ready to help you with any
+            questions or technical issues
           </p>
         </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div class="glass-card p-8 rounded-2xl">
-            <div class="text-center mb-6">
-              <div
-                class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <span class="text-2xl">🎯</span>
-              </div>
-              <h3 class="text-xl font-bold neon-text">Precision Targeting</h3>
-            </div>
-            <ul class="space-y-3 text-gray-400">
-              <li>• GPS accuracy within 3 meters</li>
-              <li>• Real-time location tracking</li>
-              <li>• Automatic station detection</li>
-              <li>• Distance calculations</li>
-              <li>• Walking/driving directions</li>
-            </ul>
-          </div>
-
-          <div class="glass-card p-8 rounded-2xl">
-            <div class="text-center mb-6">
-              <div
-                class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <span class="text-2xl">🌐</span>
-              </div>
-              <h3 class="text-xl font-bold neon-text">Smart Filtering</h3>
-            </div>
-            <ul class="space-y-3 text-gray-400">
-              <li>• Filter by charging speed</li>
-              <li>• Connector type compatibility</li>
-              <li>• Price range selection</li>
-              <li>• Availability status</li>
-              <li>• Operating hours</li>
-            </ul>
-          </div>
-
-          <div class="glass-card p-8 rounded-2xl">
-            <div class="text-center mb-6">
-              <div
-                class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <span class="text-2xl">🔔</span>
-              </div>
-              <h3 class="text-xl font-bold neon-text">Proactive Alerts</h3>
-            </div>
-            <ul class="space-y-3 text-gray-400">
-              <li>• Low battery warnings</li>
-              <li>• Nearby station notifications</li>
-              <li>• Booking reminders</li>
-              <li>• Price drop alerts</li>
-              <li>• Maintenance updates</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Availability Note -->
-    <section class="py-16 px-4 relative">
-      <div class="max-w-4xl mx-auto text-center fade-in">
-        <div
-          class="glass-card p-8 rounded-2xl border-yellow-500/30 bg-yellow-500/10"
-        >
-          <div class="flex items-center justify-center mb-4">
-            <div
-              class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center"
-            >
-              <span class="text-2xl">⚠️</span>
-            </div>
-          </div>
-          <h2
-            class="text-2xl md:text-3xl font-bold mb-4 text-yellow-400 orbitron"
-          >
-            EARLY ACCESS AVAILABLE
-          </h2>
-          <p class="text-lg text-gray-300 mb-6">
-            VoltGo India is currently available via direct APK download while we
-            prepare for Google Play Store launch. Get exclusive early access to
-            all features!
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <div class="flex items-center gap-2 text-gray-400">
-              <span>🔄</span>
-              <span>Auto-updates enabled</span>
-            </div>
-            <div class="flex items-center gap-2 text-gray-400">
-              <span>🛡️</span>
-              <span>Digitally signed & verified</span>
-            </div>
-            <div class="flex items-center gap-2 text-gray-400">
-              <span>📱</span>
-              <span>All Android versions supported</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Customer Support Section -->
-    <section class="py-20 px-4 relative">
-      <div class="max-w-6xl mx-auto text-center fade-in">
-        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-gradient orbitron">
-          24/7 SUPPORT CENTER
-        </h2>
-        <p class="text-xl text-gray-300 mb-16 max-w-3xl mx-auto">
-          Our dedicated support team is always ready to help you with any
-          questions or technical issues
-        </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="glass-card p-8 rounded-2xl">
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-1">
             <div
-              class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <span class="text-2xl">📧</span>
             </div>
-            <h3 class="text-lg font-semibold mb-4 neon-text">Email Support</h3>
+            <h3 class="text-lg font-semibold mb-4 text-white">Email Support</h3>
             <p class="text-gray-400 mb-4">support@voltgoindia.com</p>
             <p class="text-sm text-gray-500">Response within 2 hours</p>
           </div>
 
-          <div class="glass-card p-8 rounded-2xl">
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-2">
             <div
-              class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <span class="text-2xl">📞</span>
             </div>
-            <h3 class="text-lg font-semibold mb-4 neon-text">Phone Support</h3>
+            <h3 class="text-lg font-semibold mb-4 text-white">Phone Support</h3>
             <p class="text-gray-400 mb-4">+91-XXXXXXXXXX</p>
             <p class="text-sm text-gray-500">Instant call support</p>
           </div>
 
-          <div class="glass-card p-8 rounded-2xl">
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-3">
             <div
-              class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <span class="text-2xl">💬</span>
             </div>
-            <h3 class="text-lg font-semibold mb-4 neon-text">Live Chat</h3>
+            <h3 class="text-lg font-semibold mb-4 text-white">Live Chat</h3>
             <p class="text-gray-400 mb-4">In-app messaging</p>
             <p class="text-sm text-gray-500">Available 24/7</p>
           </div>
 
-          <div class="glass-card p-8 rounded-2xl">
+          <div class="glass-card p-8 rounded-2xl text-center fade-in stagger-4">
             <div
-              class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <span class="text-2xl">🕐</span>
             </div>
-            <h3 class="text-lg font-semibold mb-4 neon-text">Support Hours</h3>
+            <h3 class="text-lg font-semibold mb-4 text-white">Support Hours</h3>
             <p class="text-gray-400 mb-4">Mon–Sat</p>
             <p class="text-sm text-gray-500">10:00 AM – 6:00 PM IST</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- FAQ Section -->
-        <div class="mt-20">
-          <h3 class="text-2xl font-bold mb-8 text-gradient">
-            Frequently Asked Questions
-          </h3>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div class="glass-card p-6 rounded-xl text-left">
-              <h4 class="font-semibold text-green-400 mb-2">
-                How accurate is the location detection?
-              </h4>
-              <p class="text-gray-400 text-sm">
-                Our GPS system provides accuracy within 3 meters and updates in
-                real-time.
-              </p>
+    <section id="download" class="section-padding">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="glass-card p-12 rounded-3xl fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient mono">
+              Ready to Go Electric?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Join thousands of satisfied users who have transformed their EV
+              experience with VoltGo India
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+              <a
+                href="voltgo-latest.apk"
+                download
+                class="btn-primary px-10 py-5 rounded-xl font-bold text-xl flex items-center gap-4"
+              >
+                <span class="text-3xl">📱</span>
+                <div class="text-left">
+                  <div>Download VoltGo</div>
+                  <div class="text-sm opacity-75">Latest Version</div>
+                </div>
+              </a>
+              <a
+                href="voltgo-beta.apk"
+                download
+                class="btn-secondary px-10 py-5 rounded-xl font-bold text-xl flex items-center gap-4"
+              >
+                <span class="text-3xl">🔧</span>
+                <div class="text-left">
+                  <div>Beta Version</div>
+                  <div class="text-sm opacity-75">For Testing</div>
+                </div>
+              </a>
             </div>
-            <div class="glass-card p-6 rounded-xl text-left">
-              <h4 class="font-semibold text-green-400 mb-2">
-                Can I book charging slots in advance?
-              </h4>
-              <p class="text-gray-400 text-sm">
-                Yes! You can reserve slots up to 7 days in advance with flexible
-                timing.
-              </p>
-            </div>
-            <div class="glass-card p-6 rounded-xl text-left">
-              <h4 class="font-semibold text-green-400 mb-2">
-                What payment methods are supported?
-              </h4>
-              <p class="text-gray-400 text-sm">
-                We accept all major cards, UPI, wallets, and net banking via
-                Razorpay.
-              </p>
-            </div>
-            <div class="glass-card p-6 rounded-xl text-left">
-              <h4 class="font-semibold text-green-400 mb-2">
-                Is the app available on iOS?
-              </h4>
-              <p class="text-gray-400 text-sm">
-                Currently Android only, but iOS version is coming soon!
-              </p>
+
+            <div
+              class="text-sm text-gray-500 flex flex-wrap justify-center gap-6"
+            >
+              <div class="flex items-center gap-2">
+                <span>✓</span>
+                <span>Virus-free & secure</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>✓</span>
+                <span>registration required</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>✓</span>
+                <span>Works online</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Download CTA Section -->
-    <section class="py-20 px-4 relative">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="glass-card p-12 rounded-3xl electric-pulse">
-          <h2
-            class="text-3xl md:text-4xl font-bold mb-6 text-gradient orbitron"
-          >
-            READY TO GO ELECTRIC?
-          </h2>
-          <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied users who have transformed their EV
-            experience with VoltGo India
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-            <a
-              href="voltgo-latest.apk"
-              download
-              class="btn-primary px-10 py-5 rounded-xl font-bold text-xl flex items-center gap-4 glow-effect"
-            >
-              <span class="text-3xl">⚡</span>
-              <div class="text-left">
-                <div>Download VoltGo</div>
-                <div class="text-sm opacity-75">Latest Version</div>
-              </div>
-            </a>
-            <a
-              href="voltgo-beta.apk"
-              download
-              class="btn-secondary px-10 py-5 rounded-xl font-bold text-xl flex items-center gap-4"
-            >
-              <span class="text-3xl">🔧</span>
-              <div class="text-left">
-                <div>Beta Version</div>
-                <div class="text-sm opacity-75">For Testing</div>
-              </div>
-            </a>
-          </div>
-
-          <div
-            class="text-sm text-gray-500 flex flex-wrap justify-center gap-6"
-          >
-            <div class="flex items-center gap-2">
-              <span>✓</span>
-              <span>Virus-free & secure</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span>✓</span>
-              <span>No registration required</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span>✓</span>
-              <span>Works offline</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 px-4 mt-20 border-t border-gray-800 relative">
-      <div class="max-w-7xl mx-auto">
+    <footer class="py-16 border-t border-gray-800">
+      <div class="container">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <!-- Company Info -->
           <div class="lg:col-span-2">
-            <h3 class="text-3xl font-bold text-gradient mb-4 orbitron">
-              VOLTGO INDIA
-            </h3>
+            <div class="flex items-center space-x-4 mb-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-2xl font-bold"
+                  ><img src="C:\all\VoltGo Inida\logo.png" alt=""
+                /></span>
+              </div>
+              <span class="text-2xl font-bold mono">VoltGo India</span>
+            </div>
             <p class="text-gray-400 mb-6 max-w-md">
               Revolutionizing electric vehicle management through innovative
               technology and user-centric design. Making EV adoption seamless
@@ -947,93 +741,304 @@
             </p>
             <div class="flex gap-4">
               <div
-                class="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center"
+                class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center"
               >
                 <span class="text-white">📧</span>
               </div>
               <div
-                class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center"
+                class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center"
               >
                 <span class="text-white">📱</span>
               </div>
               <div
-                class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full flex items-center justify-center"
+                class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center"
               >
                 <span class="text-white">🌐</span>
               </div>
             </div>
           </div>
 
-          <!-- Quick Links -->
           <div>
-            <h4 class="text-lg font-semibold mb-6 neon-text">Quick Links</h4>
+            <h4 class="text-lg font-semibold mb-6 text-white">Quick Links</h4>
             <div class="space-y-3">
               <a
                 href="#features"
-                class="text-gray-400 hover:text-green-400 transition-colors block"
+                class="text-gray-400 hover:text-white transition-colors block"
                 >Features</a
               >
               <a
                 href="#how-it-works"
-                class="text-gray-400 hover:text-green-400 transition-colors block"
+                class="text-gray-400 hover:text-white transition-colors block"
                 >How It Works</a
               >
               <a
                 href="#support"
-                class="text-gray-400 hover:text-green-400 transition-colors block"
+                class="text-gray-400 hover:text-white transition-colors block"
                 >Support</a
               >
               <a
                 href="#download"
-                class="text-gray-400 hover:text-green-400 transition-colors block"
+                class="text-gray-400 hover:text-white transition-colors block"
                 >Download</a
               >
             </div>
           </div>
 
-          <!-- Legal -->
           <div>
-            <h4 class="text-lg font-semibold mb-6 neon-text">Legal</h4>
+            <h4 class="text-lg font-semibold mb-6 text-white">Legal</h4>
             <div class="space-y-3">
               <a
-                href="privacy.html"
-                target="_blank"
-                class="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-2"
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors block"
+                >Privacy Policy</a
               >
-                <span>🔐</span> Privacy Policy
-              </a>
               <a
-                href="terms.html"
-                target="_blank"
-                class="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-2"
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors block"
+                >Terms & Conditions</a
               >
-                <span>📄</span> Terms & Conditions
-              </a>
               <a
-                href="refund.html"
-                target="_blank"
-                class="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-2"
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors block"
+                >Refund Policy</a
               >
-                <span>💸</span> Refund Policy
-              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors block"
+                >Security</a
+              >
             </div>
           </div>
         </div>
 
-        <!-- Bottom Bar -->
-        <div
-          class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800"
-        >
-          <div class="text-gray-500 mb-4 md:mb-0">
-            © 2025 VoltGo India. All rights reserved.
-          </div>
-          <div class="flex items-center gap-4 text-sm text-gray-500">
-            <span>Made with ⚡ in India</span>
-            <span>•</span>
-            <span>Version 2.1.0</span>
+        <div class="border-t border-gray-800 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 mb-4 md:mb-0">
+              © 2025 VoltGo India. All rights reserved. | Made with ⚡ for a
+              sustainable future
+            </p>
+            <div class="flex gap-6 text-sm text-gray-400">
+              <span>Version 2.1.0</span>
+              <span>•</span>
+              <span>Last updated: July 2025</span>
+            </div>
           </div>
         </div>
       </div>
     </footer>
+
+    <button
+      id="scrollTop"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg opacity-0 transition-all duration-300 hover:scale-110"
+    >
+      <span class="text-white text-xl">↑</span>
+    </button>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Scroll to top functionality
+      const scrollTopBtn = document.getElementById("scrollTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.style.opacity = "1";
+          scrollTopBtn.style.transform = "translateY(0)";
+        } else {
+          scrollTopBtn.style.opacity = "0";
+          scrollTopBtn.style.transform = "translateY(10px)";
+        }
+      });
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector(".md\\:hidden button");
+      const mobileMenu = document.createElement("div");
+      mobileMenu.className =
+        "md:hidden bg-slate-900/95 backdrop-blur-lg absolute top-16 left-0 right-0 p-4 space-y-4 border-t border-gray-800";
+      mobileMenu.innerHTML = `
+            <a href="#features" class="block text-gray-300 hover:text-white transition-colors py-2">Features</a>
+            <a href="#how-it-works" class="block text-gray-300 hover:text-white transition-colors py-2">How It Works</a>
+            <a href="#support" class="block text-gray-300 hover:text-white transition-colors py-2">Support</a>
+            <a href="#download" class="block text-gray-300 hover:text-white transition-colors py-2">Download</a>
+        `;
+      mobileMenu.style.display = "none";
+
+      mobileMenuBtn.addEventListener("click", () => {
+        const nav = document.querySelector("nav");
+        if (mobileMenu.style.display === "none") {
+          nav.appendChild(mobileMenu);
+          mobileMenu.style.display = "block";
+        } else {
+          mobileMenu.style.display = "none";
+          if (mobileMenu.parentNode) {
+            mobileMenu.parentNode.removeChild(mobileMenu);
+          }
+        }
+      });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Dynamic statistics counter
+      function animateCounter(element, target, duration) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= target) {
+            start = target;
+            clearInterval(timer);
+          }
+          element.textContent =
+            Math.floor(start) +
+            (element.textContent.includes("+")
+              ? "+"
+              : element.textContent.includes("%")
+              ? "%"
+              : "");
+        }, 16);
+      }
+
+      // Animate counters when they come into view
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const text = counter.textContent;
+              const number = parseInt(text.replace(/[^\d]/g, ""));
+
+              if (text.includes("500+")) {
+                animateCounter(counter, 500, 2000);
+              } else if (text.includes("50K+")) {
+                animateCounter(counter, 50000, 2000);
+              } else if (text.includes("99.9%")) {
+                animateCounter(counter, 99.9, 2000);
+              }
+
+              counterObserver.unobserve(counter);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      document.querySelectorAll(".stat-number").forEach((counter) => {
+        counterObserver.observe(counter);
+      });
+
+      // Add loading animation
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "1";
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const heroSection = document.querySelector(".hero-gradient");
+        if (heroSection) {
+          heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+
+      // Download tracking
+      document.querySelectorAll("a[download]").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const fileName = e.target.getAttribute("href");
+          console.log(`Download initiated: ${fileName}`);
+
+          // Show download success message
+          const message = document.createElement("div");
+          message.className =
+            "fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300";
+          message.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <span>✓</span>
+                        <span>Download started successfully!</span>
+                    </div>
+                `;
+          document.body.appendChild(message);
+
+          setTimeout(() => {
+            message.style.opacity = "0";
+            message.style.transform = "translateX(100%)";
+            setTimeout(() => {
+              document.body.removeChild(message);
+            }, 300);
+          }, 3000);
+        });
+      });
+
+      // Feature cards hover effects
+      document.querySelectorAll(".glass-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-5px) scale(1.02)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // Add typing effect to hero title
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+
+        type();
+      }
+
+      // Initialize typing effect on page load
+      setTimeout(() => {
+        const heroTitle = document.querySelector(".hero-gradient h1");
+        if (heroTitle) {
+          typeWriter(heroTitle, "VoltGo India", 150);
+        }
+      }, 500);
+    </script>
   </body>
 </html>
