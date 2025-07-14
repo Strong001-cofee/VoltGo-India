@@ -50,18 +50,14 @@
       }
 
       .btn-primary {
-        background: linear-gradient(
-          135deg,
-          #3b82f6 0%,
-          #2563eb 100%
-        ); /* Changed from green */
-        box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.3); /* Changed from green */
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.3);
         transition: all 0.3s ease;
       }
 
       .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.4); /* Changed from green */
+        box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.4);
       }
 
       .btn-secondary {
@@ -76,12 +72,7 @@
       }
 
       .text-gradient {
-        background: linear-gradient(
-          135deg,
-          #3b82f6,
-          #8b5cf6,
-          #a855f7
-        ); /* Changed from green */
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #a855f7);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -145,8 +136,7 @@
         background: linear-gradient(
           135deg,
           rgba(59, 130, 246, 0.1) 0%,
-          /* Changed from green transparent */ rgba(168, 85, 247, 0.1) 100%
-            /* Changed from blue transparent */
+          rgba(168, 85, 247, 0.1) 100%
         );
         border-radius: 2rem;
         overflow: hidden;
@@ -154,19 +144,15 @@
       }
 
       .feature-icon {
-        width: 5rem; /* Increased size */
-        height: 5rem; /* Increased size */
-        background: linear-gradient(
-          135deg,
-          #3b82f6 0%,
-          #a855f7 100%
-        ); /* Changed from green */
+        width: 5rem;
+        height: 5rem;
+        background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
         border-radius: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 auto 1.5rem;
-        font-size: 2rem; /* Increased font size for icon */
+        font-size: 2rem;
         transition: all 0.3s ease;
       }
 
@@ -192,7 +178,7 @@
       .stat-number {
         font-size: 3rem;
         font-weight: 800;
-        color: #3b82f6; /* Changed from green */
+        color: #3b82f6;
         margin-bottom: 0.5rem;
       }
 
@@ -204,11 +190,7 @@
       .mockup-glow {
         position: absolute;
         inset: -2rem;
-        background: linear-gradient(
-          135deg,
-          #3b82f6,
-          #8b5cf6
-        ); /* Changed from green */
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
         border-radius: 3rem;
         filter: blur(2rem);
         opacity: 0.3;
@@ -225,7 +207,7 @@
               class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center"
             >
               <span class="text-xl font-bold"
-                ><img src="logo.png" alt=""
+                ><img src="logo.png" alt="logo"
               /></span>
             </div>
             <span class="text-xl font-bold mono">VoltGo</span>
@@ -622,7 +604,7 @@
               <span class="text-2xl">📧</span>
             </div>
             <h3 class="text-lg font-semibold mb-4 text-white">Email Support</h3>
-            <p class="text-gray-400 mb-4">support@voltgoindia.com</p>
+            <p class="text-gray-400 mb-4">voltgoindia@hotmail.com</p>
             <p class="text-sm text-gray-500">Response within 2 hours</p>
           </div>
 
@@ -633,7 +615,7 @@
               <span class="text-2xl">📞</span>
             </div>
             <h3 class="text-lg font-semibold mb-4 text-white">Phone Support</h3>
-            <p class="text-gray-400 mb-4">+91-XXXXXXXXXX</p>
+            <p class="text-gray-400 mb-4">+91-7029764910</p>
             <p class="text-sm text-gray-500">Instant call support</p>
           </div>
 
@@ -708,11 +690,11 @@
               </div>
               <div class="flex items-center gap-2">
                 <span>✓</span>
-                <span>registration required</span>
+                <span>No registration required</span>
               </div>
               <div class="flex items-center gap-2">
                 <span>✓</span>
-                <span>Works online</span>
+                <span>Works offline</span>
               </div>
             </div>
           </div>
@@ -728,9 +710,7 @@
               <div
                 class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center"
               >
-                <span class="text-2xl font-bold"
-                  ><img src="logo.png" alt=""
-                /></span>
+                <span class="text-2xl font-bold">V</span>
               </div>
               <span class="text-2xl font-bold mono">VoltGo India</span>
             </div>
@@ -986,13 +966,7 @@
           // Show download success message
           const message = document.createElement("div");
           message.className =
-            "fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300";
-          message.innerHTML = `
-                    <div class="flex items-center gap-2">
-                        <span>✓</span>
-                        <span>Download started successfully!</span>
-                    </div>
-                `;
+            "fixed top-20 right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300"; // Changed to bg-blue-500
           document.body.appendChild(message);
 
           setTimeout(() => {
